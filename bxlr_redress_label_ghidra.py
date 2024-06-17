@@ -4,9 +4,10 @@ from ghidra.program.model.symbol.SourceType import *
 def main():
     fm = currentProgram.getFunctionManager()
     json_file_path = askFile('FILE', 'Choose R2 JSON output file')
-    with open('json_file_path', 'r') as fd:
+    with open('{}'.format(json_file_path), 'r') as fd:
         data = fd.read()
     print('Loaded JSON file {}'.format(json_file_path))
+
     jdata = json.loads(data)
     for item in jdata:
         offset = item.get('offset', None)
