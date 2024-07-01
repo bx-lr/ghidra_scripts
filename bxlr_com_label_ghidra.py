@@ -43,12 +43,7 @@ def get_guid_str(byte_arr):
     data3 = struct.unpack('<H', byte_arr[6:8])[0]
     data4 = struct.unpack('>H', byte_arr[8:10])[0]
     data5 = struct.unpack('6c', byte_arr[10:])
-    uuid_str = '%08x-%04x-%04x-%04x-%s-%s' % (data1,
-                                              data2,
-                                              data3,
-                                              data4,
-                                              ''.join('%02x' % ord(x) for x in data5[0:2]),
-                                              ''.join('%02x' % ord(x) for x in data5[2:]))
+
     uuid_str = '%08x-' % data1
     uuid_str += '%04x-' % data2
     uuid_str += '%04x-' % data3
